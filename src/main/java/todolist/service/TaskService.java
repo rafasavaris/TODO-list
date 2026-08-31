@@ -48,9 +48,5 @@ public class TaskService {
         return tasks;
     }
 
-    public void altStatus(Task task, String newStatus) {
-        task.setStatus(newStatus);
-    }
-
     public List<Task> list() { return repository.listTasks(); }
 }
