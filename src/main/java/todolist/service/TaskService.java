@@ -7,24 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskService {
-
+    // atributo
     private TaskRepository repository;
 
-    public TaskService(TaskRepository repository) {
-        this.repository = repository;
-    }
+    // construtor
+    public TaskService(TaskRepository repository) { this.repository = repository; }
 
-    public void addTask(Task task) {
-        repository.addTask(task);
-    }
-
-    public void removeTask(Task task) {
-        repository.removeTask(task);
-    }
-
-    public List<Task> listTasks() {
-        return repository.listTasks();
-    }
+    // metodos
+    public void addTask(Task task) { repository.addTask(task); }
+    public void removeTask(Task task) { repository.removeTask(task); }
+    public List<Task> listTasks() { return repository.listTasks(); }
 
     public List<Task> listCategory(String cat) {
         List<Task> tasks = new ArrayList<>();
