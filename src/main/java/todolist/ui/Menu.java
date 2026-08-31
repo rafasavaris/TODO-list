@@ -41,6 +41,9 @@ public class Menu {
                 case 4:
                     removeTask();
                     break;
+                case 5:
+                    showTaskSummary();
+                    break;
                 case 0:
                     System.out.println("Encerrando...");
                     break;
@@ -58,6 +61,7 @@ public class Menu {
         System.out.println("* 2. Listar tarefas                *");
         System.out.println("* 3. Alterar tarefa                *");
         System.out.println("* 4. Remover tarefa                *");
+        System.out.println("* 5. Resumo das tarefas            *");
         System.out.println("* 0. Sair                          *");
         System.out.println("* ******************************** *");
     }
@@ -396,5 +400,18 @@ public class Menu {
                     System.out.println("Erro: opção inválida.");
             }
         }
+    }
+
+    // mostra um resumo de tarefas cadastradas
+    private void showTaskSummary() {
+        int todo = service.countStatus("TODO");
+        int doing = service.countStatus("DOING");
+        int done = service.countStatus("DONE");
+
+        System.out.println("\n* ************ RESUMO ************ *");
+        System.out.println("* TODO: " + todo);
+        System.out.println("* DOING: " + doing);
+        System.out.println("* DONE: " + done);
+        System.out.println("* TOTAL: " + (todo + doing + done));
     }
 }

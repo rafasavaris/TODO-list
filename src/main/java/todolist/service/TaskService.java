@@ -89,4 +89,13 @@ public class TaskService {
             }
         }
     }
+
+    public int countStatus(String status) {
+        int count = 0;
+
+        for (Task task : repository.listTasks()) {
+            if (task.getStatus().equalsIgnoreCase(status)) count++;
+        }
+        return count;
+    }
 }
