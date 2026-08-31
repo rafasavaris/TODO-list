@@ -90,6 +90,8 @@ public class TaskService {
         }
     }
 
+    public void saveTasks() { repository.saveTasks(); }
+
     public int countStatus(String status) {
         int count = 0;
 

@@ -46,6 +46,7 @@ public class Menu {
                     break;
                 case 0:
                     System.out.println("Encerrando...");
+                    service.saveTasks();
                     break;
                 default:
                     System.out.println("Opção inválida!");
@@ -75,7 +76,7 @@ public class Menu {
         String dueDate = readDate();
         int priority = readPriority();
         String category = showCategoryMenu();
-        String status = readStatus();
+        String status = showStatusMenu();
 
         Task task = new Task(name, description, dueDate, priority, category, status);
         service.addTask(task);
@@ -278,7 +279,7 @@ public class Menu {
     }
 
     private void updateStatus(Task task) {
-        String status = readStatus();
+        String status = showStatusMenu();
         service.updateStatus(task, status);
 
         System.out.println("Status alterado com sucesso!");
@@ -396,6 +397,28 @@ public class Menu {
                     return "Compras";
                 case 5:
                     return "Outros";
+                default:
+                    System.out.println("Erro: opção inválida.");
+            }
+        }
+    }
+
+    private String showStatusMenu() {
+        while (true) {
+            System.out.println("Categorias:");
+            System.out.println("* 1. TODO");
+            System.out.println("* 2. DOING");
+            System.out.println("* 3. DONE");
+
+            int option = readInt("Escolha uma categoria: ");
+
+            switch (option) {
+                case 1:
+                    return "TODO";
+                case 2:
+                    return "DOING";
+                case 3:
+                    return "DONE";
                 default:
                     System.out.println("Erro: opção inválida.");
             }

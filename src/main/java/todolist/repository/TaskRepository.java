@@ -19,7 +19,7 @@ public class TaskRepository {
 
     public TaskRepository() { loadTasks(); }
 
-    private void saveTasks() {
+    public void saveTasks() {
         List<String> lines = new ArrayList<>();
 
         for (Task task : tasks) {
