@@ -331,16 +331,18 @@ public class Menu {
 
     private String readDate() {
         while (true) {
-
-            System.out.print("Data de término (dd/MM/yyyy): ");
-
+            System.out.print("Data de término (dd/mm/yyyy): ");
             String dueDate = scanner.nextLine().trim();
 
             try {
-                LocalDate.parse(dueDate, formatter);
+                LocalDate date = LocalDate.parse(dueDate, formatter);
+                if (date.isBefore(LocalDate.now())) {
+                    System.out.println("Erro: a data de término não pode ser anterior à data atual.");
+                    continue;
+                }
                 return dueDate;
             } catch (DateTimeParseException e) {
-                System.out.println("Erro: data inválida. " + "Use o formato dd/MM/yyyy.");
+                System.out.println("Erro: data inválida. Use o formato dd/mm/yyyy.");
             }
         }
     }
