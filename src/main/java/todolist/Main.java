@@ -3,6 +3,7 @@ package todolist;
 import todolist.repository.TaskRepository;
 import todolist.service.TaskService;
 import todolist.ui.Menu;
+import todolist.model.Task;
 
 public class Main {
 
