@@ -60,20 +60,6 @@ As tarefas são armazenadas em um arquivo: ```tasks.txt```. Ao iniciar a aplica�
 - GitHub
 - Java NIO para manipulação de arquivos
 - ArrayList para armazenamento das tarefas em memória
-- Principais recursos do Java utilizados
-- Programação Orientada a Objetos
-- Classes e objetos
-- Encapsulamento
-- ArrayList
-- List
-- Scanner
-- LocalDate
-- DateTimeFormatter
-- Tratamento de exceções com try/catch
-- Manipulação de arquivos com Files
-- Path
-- Paths
-
 
 ## Arquitetura
 
