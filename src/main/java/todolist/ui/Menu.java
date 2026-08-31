@@ -192,7 +192,6 @@ public class Menu {
         if (task == null) return;
 
         int option;
-
         do {
             showUpdateMenu();
             option = readInt("Escolha uma opção: ");
@@ -201,31 +200,24 @@ public class Menu {
                 case 1:
                     updateName(task);
                     break;
-
                 case 2:
                     updateDescription(task);
                     break;
-
                 case 3:
                     updateDueDate(task);
                     break;
-
                 case 4:
                     updatePriority(task);
                     break;
-
                 case 5:
                     updateCategory(task);
                     break;
-
                 case 6:
                     updateStatus(task);
                     break;
-
                 case 0:
                     System.out.println("Voltando...");
                     break;
-
                 default:
                     System.out.println("Opção inválida!");
             }
@@ -283,7 +275,7 @@ public class Menu {
 
     private void updateStatus(Task task) {
         String status = readStatus();
-        task.setStatus(status);
+        service.updateStatus(task, status);
 
         System.out.println("Status alterado com sucesso!");
     }
@@ -315,7 +307,6 @@ public class Menu {
 
     // funçoes para ler uma string/inteiro/prioridade/data de acordo com os padroes estabelecidos
     private String readRequiredString(String message) {
-
         while (true) {
             System.out.print(message);
             String value = scanner.nextLine().trim();
@@ -366,7 +357,6 @@ public class Menu {
 
     private String readStatus() {
         while (true) {
-
             System.out.print("Status (TODO/DOING/DONE): ");
 
             String status = scanner.nextLine().trim().toUpperCase();
@@ -380,12 +370,12 @@ public class Menu {
     // mostra o menu de cadastro de categorias
     private String showCategoryMenu() {
         while (true) {
-            System.out.println("\nCategorias:");
-            System.out.println("1. Estudos");
-            System.out.println("2. Trabalho");
-            System.out.println("3. Pessoal");
-            System.out.println("4. Compras");
-            System.out.println("5. Outros");
+            System.out.println("Categorias:");
+            System.out.println("* 1. Estudos");
+            System.out.println("* 2. Trabalho");
+            System.out.println("* 3. Pessoal");
+            System.out.println("* 4. Compras");
+            System.out.println("* 5. Outros");
 
             int option = readInt("Escolha uma categoria: ");
 
