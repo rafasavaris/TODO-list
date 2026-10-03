@@ -19,7 +19,6 @@ public class TaskService {
     }
 
     public void removeTask(Task task) { repository.removeTask(task); }
-    public List<Task> listTasks() { return repository.listTasks(); }
     public List<Task> list() { return repository.listTasks(); }
 
     public List<Task> listCategory(String cat) {
