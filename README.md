@@ -54,12 +54,25 @@ As tarefas são armazenadas em um arquivo: ```tasks.txt```. Ao iniciar a aplica�
 
 ## Tecnologias utilizadas
 
-- Java 21
-- Gradle
-- Git
-- GitHub
-- Java NIO para manipulação de arquivos
-- ArrayList para armazenamento das tarefas em memória
+### Backend
+
+- Java 21;
+- Gradle;
+- Java NIO para manipulação de arquivos;
+- `ArrayList` para armazenamento das tarefas em memória.
+
+### Frontend
+
+- HTML5;
+- CSS3;
+- JavaScript;
+- Bootstrap 5.
+
+### Ferramentas
+
+- Git;
+- GitHub.
+
 
 ## Arquitetura
 
@@ -68,31 +81,49 @@ O projeto utiliza uma separação em camadas:
 - UI: responsável pela interação com o usuário através do terminal;
 - Service: responsável pelas regras de negócio da aplicação, como gerenciamento das tarefas, filtros, contagem por status, alteração de status e reordenação das tarefas;
 - Repository: responsável pelo armazenamento das tarefas e pela persistência em arquivo;
-- Model: representa os dados de uma tarefa.
+- Model: representa os dados de uma tarefa;
+- Frontend independente do backend.
 
 ## Estrutura do projeto
 
 ```
+## Estrutura do projeto
+
+```text
 TODO-list/
 │
-├── src/
-│   └── main/
-│       └── java/
-│           └── todolist/
-│               │
-│               ├── Main.java
-│               │
-│               ├── model/
-│               │   └── Task.java
-│               │
-│               ├── repository/
-│               │   └── TaskRepository.java
-│               │
-│               ├── service/
-│               │   └── TaskService.java
-│               │
-│               └── ui/
-│                   └── Menu.java
+├── backend/
+│   └── src/
+│       └── main/
+│           └── java/
+│               └── todolist/
+│                   │
+│                   ├── Main.java
+│                   │
+│                   ├── model/
+│                   │   └── Task.java
+│                   │
+│                   ├── repository/
+│                   │   └── TaskRepository.java
+│                   │
+│                   ├── service/
+│                   │   └── TaskService.java
+│                   │
+│                   └── ui/
+│                       └── Menu.java
+│
+├── frontend/
+│   ├── index.html
+│   │
+│   └── src/
+│       ├── style/
+│       │   └── style.css
+│       │
+│       ├── script/
+│       │   └── script.js
+│       │
+│       └── assets/
+│           └── favicon.png
 │
 ├── build.gradle
 ├── settings.gradle
@@ -100,6 +131,25 @@ TODO-list/
 ├── gradlew.bat
 └── README.md
 ```
+
+## Frontend
+
+Além da aplicação de linha de comando desenvolvida em Java, o projeto possui uma implementação de **frontend web independente**, desenvolvida com **HTML, CSS e JavaScript**.
+
+O frontend reproduz as principais funcionalidades de gerenciamento de tarefas da aplicação, permitindo:
+
+- Cadastrar tarefas;
+- Listar tarefas;
+- Editar tarefas;
+- Remover tarefas;
+- Filtrar tarefas por status, prioridade e categoria;
+- Visualizar um resumo das tarefas;
+- Validar os dados informados;
+- Exibir mensagens quando não existem tarefas ou quando os filtros não encontram resultados.
+
+A interface utiliza **Bootstrap 5** para recursos de layout, responsividade, componentes e modais, juntamente com CSS próprio para personalização da aparência.
+
+> O frontend possui implementação independente do backend Java e, atualmente, não realiza comunicação com o `TaskService` ou com o `TaskRepository`.
 
 ## Arquivos principais
 
@@ -139,9 +189,16 @@ Entre na pasta:
 cd TODO-list
 ```
 
+#### Backend
+
 Executar utilizando o Gradle Wrapper:
 
 ```bash
 ./gradlew run
 ```
+
+#### Frontend
+
+O frontend pode ser executado separadamente, abrindo o arquivo frontend/index.html no navegador. A implementação atual do frontend funciona de forma independente e não depende da execução do backend Java.
+
 ---
